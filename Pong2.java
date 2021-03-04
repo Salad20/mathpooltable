@@ -17,11 +17,12 @@ public class Pong2 extends JDialog {
         setResizable(false);
     }
     public static void main(String[] args) {
-       int[] primes=new int[]{1,2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+       int[] primes=new int[]{1,2, 3, 5, 7, 11, 13, 17, 19, 23, 29,31};
      for (int i = 0; i <primes.length ; i++) {
-//           for (int j = i+1; j <primes.length ; j++) {
-                Pong2 e=new Pong2(primes[i]*100,3100);
-//           }
+           for (int j = i+1; j <primes.length ; j++) {
+                Pong2 e=new Pong2(primes[i]*100,primes[i]*100);
+           }
      }
+
     }
 }
