@@ -9,16 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.awt.event.KeyListener;
 import java.util.Random;
-class store{
-    String direction;
-    int a;
-    int b;
-    public store(int a,int b, String direction){
-        this.a=a;
-        this.b=b;
-        this.direction=direction;
-    }
-}
+
 class Board2 extends JPanel{
     int x=Pong2.a;
     int y=Pong2.b;
@@ -27,13 +18,7 @@ class Board2 extends JPanel{
     Wall rightWall = new Wall (x,0,1,y);
     Wall bottomWall = new Wall (0,y,x,1);
     Ball ball = new Ball(0,y,12,12);
-    Paddle paddle1 = new Paddle(10, 290,0,0);
-    Paddle paddle2=new Paddle(800,20,0,0);
-    Paddle paddle3=new Paddle(800,0,0,0);
     int score1;
-    int score2;
-    int count1;
-    ArrayList<store> stores=new ArrayList<store>();
     Timer t;
     public Board2(int a, int b,JDialog frame) {
         x=a;
@@ -81,21 +66,6 @@ class Board2 extends JPanel{
                     setVisible(false);
                     frame.dispose();
                 }
-                if (ball.intersects(paddle1.getX(), paddle1.getY(), paddle1.getW(), paddle1.getH())) {
-                    ball.changeXdir(1);
-                }
-                if (ball.intersects(paddle2.getX(), paddle2.getY(), paddle2.getW(), paddle2.getH())) {
-                    ball.changeXdir(-1);
-                }
-                if (ball.intersects(paddle3.getX(), paddle3.getY(), paddle3.getW(), paddle3.getH())) {
-                    ball= new Ball(0,0,20,20);
-                    ball.move();
-                    ball.move();
-                    count1++;
-                    if(count1==3) {
-                        ball.stop();
-                    }
-                }
                 repaint();
             }
         };
@@ -108,19 +78,12 @@ class Board2 extends JPanel{
     {
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLACK);
-        paddle1.paint(g2);
+
         g2.setColor(Color.ORANGE);
         topWall.paint(g2);
         leftWall.paint(g2);
         rightWall.paint(g2);
         bottomWall.paint(g2);
         ball.paint(g2);
-        g2.setColor(Color.RED);
-        paddle2.paint(g2);
-        g.drawString("score 1 equals "+ score1, 20, 20);
-        g.drawString("score 2 equals "+ score2, 730, 20);
-        g2.setColor(Color.CYAN);
-        paddle3.paint(g2);
     }
 }
