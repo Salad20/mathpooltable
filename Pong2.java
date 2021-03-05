@@ -17,7 +17,7 @@ public class Pong2 extends JDialog {
         setResizable(false);
     }
     public static void main(String[] args) {
-    // replace a and b with dimension of pool table
+    // replace a and b with dimension of pool table. to test multiple cases at once use a for loop and an array of numbers
     Pong2 e=new Pong2(a*100,b*100);
    
 
